@@ -1,0 +1,18 @@
+item Manage
+-------------
+ -create rosource route
+ -create controller(php artisan make:controller name --resource)
+ -show route list(php artisan route:list)
+ create blades(4 for GET Methods)
+ -call specified view from method
+ -use store method (form action)
+  -dd()
+  -validatoion
+  -if include image,upload
+  -data insert
+  -redirect->(index)
+ -show in database
+
+
+
+ 
