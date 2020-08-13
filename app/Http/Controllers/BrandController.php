@@ -35,10 +35,8 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-    
         'brand_name'=>'required',
-        'brand_photo'=>'required',
-        
+        'brand_photo'=>'required', 
        ]);
        $imageName=time().'.'.$request->brand_photo->extension();
        $request->brand_photo->move(public_path('backend/brandimg/'),$imageName);
