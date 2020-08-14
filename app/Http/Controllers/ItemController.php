@@ -9,6 +9,7 @@ use App\Subcategory;
 
 class ItemController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -126,15 +127,13 @@ class ItemController extends Controller
         //if include file,upload
 
         if ($request->hasFile('item_photo')) {
-           
-        
         $imageName=time().'.'.$request->item_photo->extension();
        $request->item_photo->move(public_path('backend/itemimg/'),$imageName);
        $myfile='backend/itemimg/'.$imageName;
 
+        $oldphoto=$request->old_photo;
+        @unlink($oldphoto);
    }else{
-
-        @unlink($myfile);
         $myfile=$request->old_photo;
    }
 

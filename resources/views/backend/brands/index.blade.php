@@ -14,19 +14,26 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Gucci<a href="{{route('brands.show',1)}}"><span class="badge badge-primary badge-pill">Detail</span></a></td>
-					<td>image</td>
-					
+				
+					@php $i=1; @endphp
+					@foreach($brands as $brand)
+					<tr>
+					<td>{{$i++}}</td>
+					<td>{{$brand->name}}</td>
+					<td>
+						<img src="{{asset($brand->photo)}}" width="75px;">
+					</td>
 					<td>
 						<a href="{{route('brands.edit',1)}}" class="btn btn-warning">edit</a>
-						<a href="" class="btn btn-danger">Delelte</a>
-
-
+						<form method="post" action="{{route('brands.destroy',$brand->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
+							@csrf
+							@method('DELETE')
+							<input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">
+						</form>
 					</td>
 
 				</tr>
+				@endforeach
 			</tbody>
 		</table>
 	</div>

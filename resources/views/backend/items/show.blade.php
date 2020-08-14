@@ -9,7 +9,7 @@
 				<img src="{{asset($item->photo)}}" class="w-75 h-100" > 
 			</div>
 			<div class="col-md-7">
-				<div><span>NAME:</span>{{$item->name}}</div>
+				<div>NAME<span class="float-right">:{{$item->name}}<span></div>
 				<hr>
 				@if($item->discount)
 				<h2><p>PRICE:<del>{{$item->price}}</del> {{$item->discount}}</p></h2>
@@ -19,6 +19,11 @@
 				@endif
 				<h2><p>CODENO: {{$item->codeno}}</p></h2>
 				<h2><p>DESCRIPTION: {{$item->description}}</p></h2>
+				<div><span>BRAND NAME: </span>{{$item->brand->name}}</div>
+				<hr>
+				<div>SUBCATEGORY NAME<span class="float-right">:{{$item->subcategory->name
+				}}</span></div>
+				<hr>
 				
 			</div>
 

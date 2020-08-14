@@ -92,9 +92,6 @@
 				$("#price").text(price);
 				$("#desc").text(desc);
 				$('#mymodal').modal('show');
-		
-
-
 			})
 		})
 	</script>
