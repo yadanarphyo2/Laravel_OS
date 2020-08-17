@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div class="col-lg-9">
-	<h2 class="itemtitle text-center m-4"></h2>
+	<h2 class="itemtitle text-center m-4">All Items</h2>
     <div id="myItems" class="row">
     	
     </div>   

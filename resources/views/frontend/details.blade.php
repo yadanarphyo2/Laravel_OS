@@ -37,6 +37,9 @@
 						<h5>{{$item->description}}</h5>
 					</div>
 					<button class="btn valbtn addtocart btn-outline-secondary" data-id="{{$item->id}}" data-name=" {{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}" data-discount="{{$item->discount}}" data-brand="{{$item->brand_id}}" data-subcategory="{{$item->subcategory_id}}" data-description="{{$item->descriptin}}"><i class="fas fa-shopping-cart"></i><span class="qtycheck"></span></button>
+					
+					<a href="{{route('checkout')}}" class="btn valbtn btn-outline-secondary mx-3">buy now</a>
+					
 					</div>
 					
 				</div>

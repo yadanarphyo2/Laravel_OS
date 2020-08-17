@@ -20,15 +20,7 @@ Route::resource('categories','CategoryController');
 Route::resource('subcategories','SubcategoryController');
 });
 
-
-
 Route::resource('orders','OrderController');
-
-
-
-
-
-
 
 Route::get('itempage','FrontendController@itempage')->name('itempage');
 Route::get('itemdetail/{id}','FrontendController@itemdetail')->name('itemdetail');
@@ -40,7 +32,4 @@ Route::get('about','FrontendController@about')->name('about');
 Route::get('/','FrontendController@home')->name('home');
 Route::get('contact','FrontendController@contact')->name('contact');
 Auth::routes();
-
-Route::get('/home','HomeController@index')->name('home');
-
 Route::post('/getItem','FrontendController@getItem')->name('getItem');

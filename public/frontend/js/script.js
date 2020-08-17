@@ -56,9 +56,64 @@ $(document).ready(function(){
 		}
 	};
 
+	$(".addtocart").on('click',function(){
+		var item_qty=parseInt($('#qty').val());
+		var id = $(this).data('id');
+		var name = $(this).data('name');
+		var photo = $(this).data('photo');
+		var price = $(this).data('price');
+		var discount = $(this).data('discount');
+		var qty=1;
+		if (item_qty) {
+			qty+=item_qty;
+		}
+
+		var shop_item = {
+			id:id,
+			name:name,
+			price:price,
+			discount:discount,
+			photo:photo,
+			qty:qty
+		}
+
+		var shopString = localStorage.getItem("beauty");
+		var shopArray;
+		if (shopString==null) {
+			shopArray=Array();
+		}else {
+			shopArray=JSON.parse(shopString);
+		}
+
+		var status = false;
+		$.each(shopArray,function(i,v){
+			if (id==v.id) {
+				status = true;
+				if (!item_qty) {
+					v.qty++;
+					
+				}else{
+					v.qty+=item_qty;
+
+				}
+				
+			}
+
+		})
+
+		if (status==false) {
+			shopArray.push(shop_item);
+
+		}
+
+		var shopData = JSON.stringify(shopArray);
+		localStorage.setItem("beauty", shopData);
+		count();
+
+	});
 
 	// Add To Cart
-	$(".addtocart").on('click',function(){
+	$("#myItems").on('click','.addtocart',function(){
 		var item_qty=parseInt($('#qty').val());
 		var id = $(this).data('id');
 		var name = $(this).data('name');

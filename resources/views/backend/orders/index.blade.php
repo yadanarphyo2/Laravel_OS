@@ -14,6 +14,7 @@
 								<th>User</th>
 								<th>Note</th>
 								<th>Total</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -26,13 +27,24 @@
 									<td>{{$order->user_id}}</td>
 									<td>{{$order->note}}</td>
 									<td>{{$order->total}}</td>
-
+									<td><a href="{{route('orders.show',$order->id)}}" class="btn btn-info">Detail</a>
+										<form method="post" action="{{route('orders.destroy',$order->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
+											@csrf
+											@method('DELETE')
+											<input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">
+										</form>
+								</td>
 								</tr>
+
 							@endforeach
-							<tr></tr>
 							
 						</tbody>
+
 					</table>
+					{{-- @foreach ($order->items as $order)
+						<h1>{{$order->pivot->item_id}}</h1>
+						<h1>{{$order->pivot->order_id}}</h1>
+					@endforeach --}}
 				</div>
 			</div>
 			

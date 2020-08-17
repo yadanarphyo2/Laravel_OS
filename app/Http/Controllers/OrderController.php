@@ -10,9 +10,10 @@ class OrderController extends Controller
 {
    
 
-     public function __construct()
+     public function __construct($value="")
     {
         $this->middleware('role:customer', ['only' => ['store']]);
+
     }
     /**
      * Display a listing of the resource.
@@ -22,9 +23,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders=Order::all();
-     
         return view('backend.orders.index',compact('orders'));
-        
     }
 
     /**
@@ -62,7 +61,6 @@ class OrderController extends Controller
         foreach ($cartArr as $row) {
            $order->items()->attach($row->id,['qty'=>$row->qty]);
            return 'successfully';
-           
         }
 
 
@@ -77,7 +75,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order=Order::find($id);
+        // dd($item);
+        return view('backend.orders.show',compact('order'));
     }
 
     /**
@@ -111,6 +111,9 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order=Order::find($id);
+        $order->delete();
+        //redirect
+        return redirect()->route('orders.index');
     }
 }
