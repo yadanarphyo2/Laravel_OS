@@ -12,17 +12,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware('auth')->group(function(){
+Route::middleware('role:admin')->group(function(){
 Route::get('dashboard','BackendController@dashboard')->name('dashboard');
 Route::resource('items','ItemController');//get-4 post-1 put-1 delete-1
 Route::resource('brands','BrandController');
 Route::resource('categories','CategoryController');
 Route::resource('subcategories','SubcategoryController');
-Route::resource('orders','OrderController');
 });
 
 
 
+Route::resource('orders','OrderController');
 
 
 
@@ -42,3 +42,5 @@ Route::get('contact','FrontendController@contact')->name('contact');
 Auth::routes();
 
 Route::get('/home','HomeController@index')->name('home');
+
+Route::post('/getItem','FrontendController@getItem')->name('getItem');

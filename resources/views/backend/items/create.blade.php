@@ -10,13 +10,11 @@
         				@csrf
         				    
               <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="item_name" class="form-control">
+              <label for="name" class="{{$errors->first('item_name')?'text-danger':''}}">Name</label>
+              <input type="text" id="name" name="item_name" class="form-control {{$errors->first('item_name')?'border-danger':''}}">
               @if($errors->has('item_name'))
                      <p class="text-danger">
-                     <i class="fas fa-exclamation-triangle"></i>name is require!!!</p> 
-                     
-                  
+                     <i class="fas fa-exclamation-triangle"></i>name is require!!!</p>    
               @endif
     
             

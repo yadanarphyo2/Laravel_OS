@@ -25,7 +25,8 @@
 					<td>{{$item->name}}</td>
 					<td>{{$item->price}}MMK</td>
 					<td>
-						<a href="{{route('items.edit',$item->id)}}" class="btn btn-warning">edit</a>
+						<a href="{{route('items.edit',$item->id)}}" class="btn 
+							btn-warning">edit</a>
 						<form method="post" action="{{route('items.destroy',$item->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
 							@csrf
 							@method('DELETE')

@@ -14,7 +14,10 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        return view('backend.subcategories.index');
+        $subcategories=Subcategory::all();
+        // $categories=Category::all();
+
+        return view('backend.subcategories.index',compact('subcategories'));
     }
 
     /**
@@ -79,7 +82,9 @@ class SubcategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $subcategory=Subcategory::find($id);
+        $categories=category::all();
+        return view('backend.subcategories.edit',compact('subcategory','categories'));
     }
 
     /**
@@ -91,7 +96,25 @@ class SubcategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $request->validate([
+        
+        'subcategory_name'=>'required',
+        
+        'category_id'=>'required',
+       
+       ]);
+
+        //if include file,upload
+
+       
+
+        //data update
+       $subcategory=Subcategory::find($id);
+       $subcategory->name=$request->subcategory_name;
+       $subcategory->category_id=$request->category_id;
+       $subcategory->save();
+        //redirect
+       return redirect()->route('subcategories.index');
     }
 
     /**
@@ -102,6 +125,9 @@ class SubcategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $subcategory=Subcategory::find($id);
+        $subcategory->delete();
+        //redirect
+        return redirect()->route('subcategories.index');
     }
 }

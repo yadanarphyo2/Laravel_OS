@@ -1,7 +1,7 @@
 @extends('backendtemplate')
 @section('content')
 <div class="container-fluid">
-	<h2>Brand Create (Form)</h2>
+	<h2>Brand Edit (Form)</h2>
 	<div class="row">
         		<div class="offset-md-2 col-md-8">
 

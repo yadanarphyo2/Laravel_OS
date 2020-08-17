@@ -1,6 +1,6 @@
 @extends('frondendtemplate')
 @section('content')
-<div class="col-lg-9">
+<div class="offset-2 col-lg-8">
 	<h2 class="mt-5 text-center">Items Detail</h2>
 	<div class="container my-5">
 		<div class="row">

@@ -63,6 +63,8 @@
                           </a>
 
                           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('profile') }}">Profile
+                          </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -87,16 +89,7 @@
 
     <div class="row">
 
-      <div class="col-lg-3">
-
-        <h5 class="my-4">Valentino bags & shoes</h5>
-        <div class="list-group">
-          <a href="{{route('itempage')}}" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-        </div>
-
-      </div>
+      @yield('sidebar')
       <!-- /.col-lg-3 -->
 
       @yield('content')

@@ -9,6 +9,7 @@ use App\Subcategory;
 
 class ItemController extends Controller
 {
+    
 
     /**
      * Display a listing of the resource.
@@ -148,8 +149,6 @@ class ItemController extends Controller
        $item->brand_id=$request->item_brand;
        $item->subcategory_id=$request->item_subcategory;
        $item->save();
-
-
         //redirect
        return redirect()->route('items.index');
 

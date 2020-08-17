@@ -1,21 +1,21 @@
 @extends('frondendtemplate')
 @section('content')
-<div class="offset-2 col-lg-5">
-	<h2>profile</h2>
-	<img src="frontend/userimg/a2.jpg" class="w-75 h-25" style="">
+<div class="offset-2 col-lg-8">
+	<h2 class="text-center">profile</h2>
+	<img src="frontend/userimg/a2.jpg" class="w-100 h-25" style="">
 	<div class="table-responsive">
 		<table class="table">
 			<tr>
 				<td>Name:</td>
-				<td>yadanarphyo</td>
+				<td>{{Auth::user()->name}}</td>
 			</tr>
 			<tr>
 				<td>Email:</td>
-				<td>yadanarphyo@gmail.com</td>
+				<td>{{Auth::user()->email}}</td>
 			</tr>
 			<tr>
-				<td>Address:</td>
-				<td>kawlin</td>
+				<td>Join In:</td>
+				<td>{{Auth::user()->created_at}}</td>
 			</tr>
 		</table>
 	</div>

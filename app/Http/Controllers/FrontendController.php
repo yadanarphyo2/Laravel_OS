@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\Subcategory;
+
 class FrontendController extends Controller
 {
     public function home($value='')
@@ -15,8 +17,8 @@ class FrontendController extends Controller
 
    public function itempage($value='')
    {
-      $items=Item::all();
-   	return view('frontend.items',compact('items'));
+      $sub=Subcategory::all();
+   	return view('frontend.items',compact('sub'));
    }
    public function itemdetail($id)
    {
@@ -47,5 +49,14 @@ class FrontendController extends Controller
    {
    	return view('frontend.profile');
    }
-
+   public function getItem(request $request)
+   {
+      $sid=$request->sid;
+      if ($sid==0) {
+      $items=Item::all();
+      }else{
+         $items=Subcategory::find($sid)->items;
+      }
+      return $items;
+   }
 }

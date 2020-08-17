@@ -230,15 +230,16 @@ $(document).ready(function(){
 
 	// For Buy Now
 	$('.buy_now').on('click',function(){
+		
 		var notes=$('.notes').val();
 		// var total=$('.total').val();
+		// alert(notes);
 
 		var shopString=localStorage.getItem("beauty");
 		if (shopString) {
 			// var shopArray=JSON.parse(shopString);
 			$.post('/orders',{shop_data:shopString,notes:notes},function(response){
 				if (response) {
-				
 					localStorage.clear();
 					getData();
 					location.href="/";

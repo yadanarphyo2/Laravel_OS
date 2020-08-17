@@ -1,6 +1,6 @@
 @extends('frondendtemplate')
 @section('content')
-<div class="col-lg-9">
+<div class="offset-2 col-lg-8,bk">
 
 	<div id="checkout_body">
 	<div class="container mb-5 text-center">
@@ -37,11 +37,11 @@
 
 			</div>
 			<div class="col-md-4 mt-3">
-					@auth
-					<button class="btn valbtn btn-outline-secondary">buy now</button>
+					@role('customer')
+					<button class="btn valbtn btn-outline-secondary buy_now">buy now</button>
 					@else
 					<a href="{{route('login')}}" class="btn valbtn btn-outline-secondary buy_now">Login To Buy</a>
-					@endauth
+					@endrole
 				
 					{{-- echo "<a href='login.php' class='btn valbtn btn-outline-secondary'>Login To Buy</a>"; --}}
 				
